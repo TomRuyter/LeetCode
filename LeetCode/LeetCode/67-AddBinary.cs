@@ -18,7 +18,7 @@ namespace LeetCode
     /// <summary>
     /// LeetCode starts here.
     /// </summary>
-    public class Solution
+    public partial class Solution
     {
         public string AddBinary(string a, string b)
         {
