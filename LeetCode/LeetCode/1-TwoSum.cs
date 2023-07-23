@@ -11,7 +11,7 @@ namespace LeetCode
         [DataRow(new int[] { 2, 7, 11, 15 }, 9, new int[] { 0, 1 })]
         public void TwoSum(int[] nums, int target, int[] expected)
         {
-            var result = new Solution().TwoSum(nums, target);
+            var result = Solution.TwoSum(nums, target);
 
             for (int i = 0; i < expected.Length; i++)
             {
@@ -22,7 +22,7 @@ namespace LeetCode
 
     public partial class Solution
     {
-        public int[] TwoSum(int[] nums, int target)
+        public static int[] TwoSum(int[] nums, int target)
         {
             // Probably need this for figuring out the index of the ones that match.
             // i can't figure another way of getting lock on the index we need.

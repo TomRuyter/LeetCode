@@ -11,7 +11,7 @@ namespace LeetCode
         [DataRow("1010", "1011", "10101")]
         public void AddBinary(string a, string b, string expected)
         {
-            Assert.AreEqual(expected, new Solution().AddBinary(a, b));
+            Assert.AreEqual(expected, Solution.AddBinary(a, b));
         }
     }
 
@@ -20,7 +20,7 @@ namespace LeetCode
     /// </summary>
     public partial class Solution
     {
-        public string AddBinary(string a, string b)
+        public static string AddBinary(string a, string b)
         {
             // Variables
             var carry = 0;
