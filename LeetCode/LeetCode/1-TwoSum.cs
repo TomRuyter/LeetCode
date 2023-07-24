@@ -25,7 +25,6 @@ namespace LeetCode
         public static int[] TwoSum(int[] nums, int target)
         {
             // Probably need this for figuring out the index of the ones that match.
-            // i can't figure another way of getting lock on the index we need.
             var numbers = new Dictionary<int, int>();
 
             // Go through each number.
