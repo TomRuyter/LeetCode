@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace LeetCode
+﻿namespace LeetCode
 {
     [TestClass]
     public class TwoSum_1
