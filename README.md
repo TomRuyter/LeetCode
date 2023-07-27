@@ -1,4 +1,8 @@
-# LeetCode
-LeetCode Challenges for Learning
+## LeetCode Collection
+A collection of LeetCode problems that I've worked through. I store the code here that passed the submission to learn from.
 
-Collection of LeetCode Problems that I've worked through.
+Go to https://leetcode.com for the problems. Each class in the test project has a number prefix that corresponds to the problem number in LeetCode so you can track them down.
+
+### Test Status
+
+[![Test LeetCode Solutions](https://github.com/TomRuyter/LeetCode/actions/workflows/LeetCodeTests.yml/badge.svg)](https://github.com/TomRuyter/LeetCode/actions/workflows/LeetCodeTests.yml)
