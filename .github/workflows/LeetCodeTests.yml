@@ -19,7 +19,6 @@ jobs:
     
     env:
       Solution_Name: LeetCode/LeetCode.sln
-      Test_Project_Path: LeetCode/LeetCode/LeetCode.csproj
 
     steps:
     - name: Checkout
@@ -32,6 +31,11 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
+
+    # Build the Solution
+    - name: Build the solution
+      run: dotnet build
+      working-directory: LeetCode/LeetCode
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
