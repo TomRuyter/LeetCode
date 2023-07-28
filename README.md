@@ -5,4 +5,4 @@ Go to https://leetcode.com for the problems. Each class in the test project has 
 
 ### Test Status
 
-[![Test LeetCode Solutions](https://github.com/TomRuyter/LeetCode/actions/workflows/LeetCodeTests.yml/badge.svg)](https://github.com/TomRuyter/LeetCode/actions/workflows/LeetCodeTests.yml)
+[![LeetCode Solutions](https://github.com/TomRuyter/LeetCode/actions/workflows/LeetCodeTests.yml/badge.svg?branch=main)](https://github.com/TomRuyter/LeetCode/actions/workflows/LeetCodeTests.yml)
