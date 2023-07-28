@@ -18,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      Solution_Name: LeetCode/LeetCode.sln
+      Working_Folder: LeetCode/LeetCode
 
     steps:
     - name: Checkout
@@ -35,9 +35,9 @@ jobs:
     # Build the Solution
     - name: Build the solution
       run: dotnet build
-      working-directory: LeetCode/LeetCode
+      working-directory: ${{ env.Working_Folder }}
 
     # Execute all unit tests in the solution
     - name: Execute unit tests
       run: dotnet test
-      working-directory: LeetCode/LeetCode
+      working-directory: ${{ env.Working_Folder }}
