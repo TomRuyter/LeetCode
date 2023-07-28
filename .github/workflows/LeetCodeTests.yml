@@ -29,13 +29,18 @@ jobs:
       uses: actions/setup-dotnet@v3
       with:
         dotnet-version: 6.0.x
+        
+    # Restore NuGet Packages
+    - name: Restore NuGet Packages
+      run: dotnet restore
+      working-directory: ${{ env.Working_Folder }}
 
     # Build the Solution
-    - name: Build the solution
+    - name: Build the Solution
       run: dotnet build
       working-directory: ${{ env.Working_Folder }}
 
     # Execute all unit tests in the solution
-    - name: Execute unit tests
+    - name: Execute Unit Tests
       run: dotnet test
       working-directory: ${{ env.Working_Folder }}
