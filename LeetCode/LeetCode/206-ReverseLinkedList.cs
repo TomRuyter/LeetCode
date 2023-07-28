@@ -16,7 +16,7 @@
         [TestMethod]
         public void ReverseList_OneToTwo()
         {
-            var list = new ListNode(1, new ListNode(2,  null!));
+            var list = new ListNode(1, new ListNode(2, null!));
 
             var result = Solution.ReverseList(list);
 

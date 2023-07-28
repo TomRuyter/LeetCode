@@ -4,7 +4,7 @@
     public class SingleNumber_136
     {
         [DataTestMethod]
-        [DataRow(new int[] { 2,2,1 }, 1)]
+        [DataRow(new int[] { 2, 2, 1 }, 1)]
         [DataRow(new int[] { 4, 1, 2, 2, 1 }, 4)]
         [DataRow(new int[] { 9 }, 9)]
         [DataRow(new int[] { 1, 1, 2, 2, 3, 4, 3, 4, 6 }, 6)]
