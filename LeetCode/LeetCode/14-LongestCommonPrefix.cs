@@ -31,7 +31,7 @@ namespace LeetCode
 
             // Short circuits.
             if (!strs.Any()) { return string.Empty; };
-            if (strs.Count() == 1 && strs[0].Length == 1) { return strs[0]; }
+            if (strs.Length == 1 && strs[0].Length == 1) { return strs[0]; }
 
             // Drop into loop to go through this all.
             while (!finished)
@@ -61,7 +61,7 @@ namespace LeetCode
                 }
 
                 // See if we have a complete set
-                if (parts.ContainsKey(key) && parts[key] == strs.Count())
+                if (parts.ContainsKey(key) && parts[key] == strs.Length)
                 {
                     // we do add this char to the output
                     returnString.Append(key);
