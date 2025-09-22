@@ -22,34 +22,20 @@
     {
         public static int[] PlusOne(int[] digits)
         {
-            var digitList = digits.Reverse().ToList();
-
-            for (var i = 0; i < digitList.Count; i++)
+            for (int i = digits.Length - 1; i >= 0; i--)
             {
-                digitList[i] += 1;
-
-                // Reverse Array, Create List.
-                bool previous9;
-                if (digitList[i] > 9)
+                if (digits[i] < 9)
                 {
-                    previous9 = true;
-                    digitList[i] = 0;
+                    digits[i]++;
+                    return digits;
                 }
-                else
-                {
-                    break;
-                }
-
-                // Final check for a floating digit
-                if (i == digitList.Count - 1 && previous9)
-                {
-                    digitList.Add(1);
-                    break;
-                }
+                digits[i] = 0;
             }
 
-            digitList.Reverse();
-            return digitList.ToArray();
+            // If we're here all digits were 9, so we need an extra digit at the front.
+            var res = new int[digits.Length + 1];
+            res[0] = 1;
+            return res;
         }
     }
 }

@@ -33,34 +33,18 @@ namespace LeetCode
             // loop through characters
             for (int i = a.Length - 1; i >= 0; i--)
             {
-                var value = int.Parse(a.Substring(i, 1)) + int.Parse(b.Substring(i, 1)) + carry;
-
-                if (value > 1)
-                {
-                    if (value == 2)
-                    {
-                        carry = 1;
-                        result.Append('0');
-                    }
-
-                    if (value == 3)
-                    {
-                        carry = 1;
-                        result.Append('1');
-                    }
-                }
-                else
-                {
-                    carry = 0;
-                    result.Append(value);
-                }
+                int va = a[i] - '0';
+                int vb = b[i] - '0';
+                int sum = va + vb + carry;
+                result.Append((char)('0' + (sum & 1)));
+                carry = sum >> 1;
             }
 
             // Still have left overs?
             if (carry > 0) { result.Append('1'); }
 
             // pass back what we have, but reverse it.
-            return new string(result.ToString().Reverse().ToArray());
+            return new string([.. result.ToString().Reverse()]);
         }
     }
 }

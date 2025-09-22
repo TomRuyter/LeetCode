@@ -19,12 +19,18 @@
     {
         public static int LengthOfLastWord(string s)
         {
-            // Trim any traling spaces
-            s = s.Trim();
-            var items = s.Split(" ");
+            if (string.IsNullOrEmpty(s)) return 0;
 
-            // Return the index.
-            return items[^1].Length;
+            int i = s.Length - 1;
+            // skip trailing spaces
+            while (i >= 0 && s[i] == ' ') i--;
+            int length = 0;
+            while (i >= 0 && s[i] != ' ')
+            {
+                length++; i--;
+            }
+
+            return length;
         }
     }
 }

@@ -16,53 +16,33 @@ namespace LeetCode
     {
         public static int LengthOfLongestSubstring(string s)
         {
-            // Storage for the current item
-            var highest = 0;
-            var current = new Dictionary<char, int>();
-            var chars = s.ToCharArray();
+            // Sliding-window approach: keep the last seen index of each character in a dictionary.
+            // Move the start of the window forward when we encounter a repeated character inside the window.
+            if (string.IsNullOrEmpty(s)) return 0;
 
-            for (var i = 0; i < chars.Length; i++)
+            var lastIndex = new Dictionary<char, int>();
+            int maxLen = 0;
+            int start = 0; // left boundary of the sliding window
+
+            for (int i = 0; i < s.Length; i++)
             {
-                var currentChar = chars[i];
+                char c = s[i];
 
-                if (current.Any())
+                if (lastIndex.TryGetValue(c, out int prev) && prev >= start)
                 {
-                    // See if this is contains the char key
-                    if (current.ContainsKey(currentChar))
-                    {
-                        // Find the index of the last occurrence of this char.
-                        var charCount = current.Count;
-                        var index = current[currentChar] + 1;
-
-                        // see if we need to update the highest.
-                        if (charCount > highest)
-                        {
-                            highest = current.Count;
-                        }
-
-                        // Reset based on index of matching char
-                        current.Clear();
-                        current.Add(chars[index], index);
-
-                        // Reset index.
-                        i = index;
-                    }
-                    else
-                    {
-                        current.Add(currentChar, i);
-                    }
+                    // Duplicate inside current window: move start right after previous occurrence
+                    start = prev + 1;
                 }
-                else
-                {
-                    // just add the first
-                    current.Add(currentChar, i);
-                }
+
+                // Update last seen index for this character
+                lastIndex[c] = i;
+
+                // Update max length
+                int windowLen = i - start + 1;
+                if (windowLen > maxLen) maxLen = windowLen;
             }
 
-            // So, second check here for getting to end of unique string.
-            if (current.Count > highest) { highest = current.Count; }
-
-            return highest;
+            return maxLen;
         }
     }
 }

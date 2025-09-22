@@ -19,21 +19,13 @@
     {
         public static int SingleNumber(int[] nums)
         {
-            var numbers = new Dictionary<int, int>();
-
+            // XOR all numbers. Duplicates cancel out, leaving the unique number.
+            int res = 0;
             foreach (var num in nums)
             {
-                if (numbers.ContainsKey(num))
-                {
-                    numbers[num] += 1;
-                }
-                else
-                {
-                    numbers.Add(num, 1);
-                }
+                res ^= num;
             }
-
-            return numbers.First(x => x.Value == 1).Key;
+            return res;
         }
     }
 }

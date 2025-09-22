@@ -20,42 +20,17 @@ namespace LeetCode
     {
         public static int RemoveElement(int[] nums, int val)
         {
-            // Make this a holder for output.
-            var numsToKeep = new Dictionary<int, int>();
+            if (nums == null || nums.Length == 0) return 0;
 
-            // Sanity checks
-            if (nums == null || !nums.Any()) { return 0; }
-
-            // Loop input and create list of items needed.
-            foreach (var item in nums)
+            int write = 0;
+            for (int read = 0; read < nums.Length; read++)
             {
-                if (item != val)
+                if (nums[read] != val)
                 {
-                    if (numsToKeep.ContainsKey(item))
-                    {
-                        numsToKeep[item]++;
-                    }
-                    else
-                    {
-                        numsToKeep.Add(item, 1);
-                    }
+                    nums[write++] = nums[read];
                 }
             }
-
-            // Now re-order arrays using the key values.
-            var index = 0;
-
-            foreach (var item in numsToKeep)
-            {
-                for (var i = 0; i < item.Value; i++)
-                {
-                    nums[index] = item.Key;
-                    index++;
-                }
-            }
-
-            // Pass back the value now we've modified array.
-            return index;
+            return write;
         }
     }
 }

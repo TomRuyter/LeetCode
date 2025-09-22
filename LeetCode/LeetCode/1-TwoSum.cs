@@ -22,34 +22,29 @@
     {
         public static int[] TwoSum(int[] nums, int target)
         {
-            // Probably need this for figuring out the index of the ones that match.
-            var numbers = new Dictionary<int, int>();
+            // Use a dictionary that maps value -> index for a single-pass O(n) solution.
+            var seen = new Dictionary<int, int>();
 
-            // Go through each number.
             for (int i = 0; i < nums.Length; i++)
             {
-                // Add the numbers into the list.
-                numbers.Add(i, nums[i]);
+                int complement = target - nums[i];
 
-                if (numbers.Count > 1)
+                // If we've seen the complement before, return its index and the current index.
+                if (seen.TryGetValue(complement, out int j))
                 {
-                    // See if we can find a match
-                    foreach (var item in numbers)
-                    {
-                        if (item.Key != i)
-                        {
-                            if (item.Value + nums[i] == target)
-                            {
-                                return new int[] { item.Key, i };
-                            }
-
-                        }
-                    }
+                    return [j, i];
                 }
 
+                // Store the current number and its index. Do not overwrite an existing index;
+                // we want the earliest index for correctness with duplicates.
+                if (!seen.ContainsKey(nums[i]))
+                {
+                    seen[nums[i]] = i;
+                }
             }
 
-            return new int[] { 0, 0 };
+            // If no solution is found, return the original sentinel value used previously.
+            return [0, 0];
         }
     }
 }

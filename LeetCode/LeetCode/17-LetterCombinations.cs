@@ -48,7 +48,7 @@
             foreach (char d in digits)
             {
                 IList<string> next = new List<string>();
-                var letterList = lettersMap.Where(x => x.Key == d).FirstOrDefault().Value;
+                var letterList = lettersMap[d];
                 foreach (char letter in letterList)
                 {
                     foreach (string s in res)

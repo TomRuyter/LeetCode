@@ -18,32 +18,43 @@
     {
         public static int RomanToInt(string s)
         {
+            if (string.IsNullOrEmpty(s)) return 0;
 
-            var result = 0;
-
-            var romanLetters = new Dictionary<char, int>()
+            // Local mapper to convert Roman numeral char to its integer value.
+            static int Val(char c) => c switch
             {
-                { 'I', 1 },
-                { 'V', 5 },
-                { 'X', 10 },
-                { 'L', 50 },
-                { 'C', 100 },
-                { 'D', 500 },
-                { 'M', 1000 }
+                'I' => 1,
+                'V' => 5,
+                'X' => 10,
+                'L' => 50,
+                'C' => 100,
+                'D' => 500,
+                'M' => 1000,
+                _ => 0
             };
 
-            s = s.Replace("IV", "IIII");
-            s = s.Replace("IX", "VIIII");
-            s = s.Replace("XL", "XXXX");
-            s = s.Replace("XC", "LXXXX");
-            s = s.Replace("CD", "CCCC");
-            s = s.Replace("CM", "DCCCC");
+            int result = 0;
+            int i = 0;
+            int n = s.Length;
 
-            var chars = s.ToCharArray();
-
-            foreach (var numeral in chars)
+            while (i < n)
             {
-                result += romanLetters[numeral];
+                int v = Val(s[i]);
+
+                if (i + 1 < n)
+                {
+                    int next = Val(s[i + 1]);
+                    if (v < next)
+                    {
+                        // Subtractive notation: e.g., IV = 5 - 1
+                        result += (next - v);
+                        i += 2;
+                        continue;
+                    }
+                }
+
+                result += v;
+                i++;
             }
 
             return result;

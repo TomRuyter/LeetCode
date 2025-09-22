@@ -6,7 +6,7 @@ namespace LeetCode
     public class LongestCommonPrefix_14
     {
         [DataTestMethod]
-        [DataRow(new string[] { "flower", "flow", "flight" }, "fl", DisplayName = "Starts_FL" )]
+        [DataRow(new string[] { "flower", "flow", "flight" }, "fl", DisplayName = "Starts_FL")]
         [DataRow(new string[] { "dog", "racecar", "car" }, "", DisplayName = "NoCommonPrefix")]
         [DataRow(new string[] { "me", "myself", "motivation" }, "m", DisplayName = "SingleM")]
         [DataRow(new string[] { "computer", "computercode", "computerscience" }, "computer", DisplayName = "Computer")]
@@ -23,61 +23,19 @@ namespace LeetCode
         /// </summary>
         public static string LongestCommonPrefix(string[] strs)
         {
-            // Variables
-            var finished = false;
-            var currentChar = 0;
-            var parts = new Dictionary<string, int>();
-            var returnString = new StringBuilder();
-
-            // Short circuits.
-            if (!strs.Any()) { return string.Empty; };
-            if (strs.Length == 1 && strs[0].Length == 1) { return strs[0]; }
-
-            // Drop into loop to go through this all.
-            while (!finished)
+            if (strs == null || strs.Length == 0) return string.Empty;
+            string first = strs[0];
+            int i = 0;
+            while (i < first.Length)
             {
-                // What character Key we're currently on.
-                var key = string.Empty;
-
-                foreach (var str in strs)
+                char c = first[i];
+                for (int j = 1; j < strs.Length; j++)
                 {
-                    // Make sure we don't go over string length.
-                    if (!string.IsNullOrWhiteSpace(str) && str.Length - 1 >= currentChar)
-                    {
-                        // get the part we need to check.
-                        key = str[currentChar].ToString();
-
-                        if (parts.ContainsKey(key))
-                        {
-                            // This exists so increment count.
-                            parts[key] += 1;
-                        }
-                        else
-                        {
-                            // Add a new one.
-                            parts.Add(key, 1);
-                        }
-                    }
+                    if (i >= strs[j].Length || strs[j][i] != c) return first.Substring(0, i);
                 }
-
-                // See if we have a complete set
-                if (parts.ContainsKey(key) && parts[key] == strs.Length)
-                {
-                    // we do add this char to the output
-                    returnString.Append(key);
-                    currentChar += 1;
-
-                    // Remove key this incase of duplicates
-                    parts.Clear();
-                }
-                else
-                {
-                    // We're done.
-                    finished = true;
-                }
+                i++;
             }
-
-            return returnString.ToString();
+            return first.Substring(0, i);
         }
     }
 }

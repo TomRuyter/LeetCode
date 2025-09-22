@@ -15,14 +15,15 @@
 
             var result = Solution.MergeKLists(lists.ToArray());
 
-            Assert.IsTrue(result.val == 1);
-            Assert.IsTrue(result.next.val == 1);
-            Assert.IsTrue(result.next.next.val == 2);
-            Assert.IsTrue(result.next.next.next.val == 3);
-            Assert.IsTrue(result.next.next.next.next.val == 4);
-            Assert.IsTrue(result.next.next.next.next.next.val == 4);
-            Assert.IsTrue(result.next.next.next.next.next.next.val == 5);
-            Assert.IsTrue(result.next.next.next.next.next.next.next.val == 6);
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.val);
+            Assert.AreEqual(1, result.next.val);
+            Assert.AreEqual(2, result.next.next.val);
+            Assert.AreEqual(3, result.next.next.next.val);
+            Assert.AreEqual(4, result.next.next.next.next.val);
+            Assert.AreEqual(4, result.next.next.next.next.next.val);
+            Assert.AreEqual(5, result.next.next.next.next.next.next.val);
+            Assert.AreEqual(6, result.next.next.next.next.next.next.next.val);
         }
 
         [TestMethod]
@@ -31,7 +32,7 @@
             var lists = new List<ListNode>();
             var result = Solution.MergeKLists(lists.ToArray());
 
-            Assert.IsTrue(result == null);
+            Assert.IsNull(result);
         }
 
         [TestMethod]
@@ -40,65 +41,35 @@
             var lists = new List<ListNode>() { };
             var result = Solution.MergeKLists(lists.ToArray());
 
-            Assert.IsTrue(result == null);
+            Assert.IsNull(result);
         }
     }
 
     public partial class Solution
     {
-        public static ListNode MergeKLists(ListNode[] lists)
+        public static ListNode? MergeKLists(ListNode[] lists)
         {
-            var nodes = new Dictionary<int, int>();
+            if (lists == null || lists.Length == 0) return null;
 
+            // Use a min-heap priority queue keyed by node value.
+            var pq = new PriorityQueue<ListNode, int>();
             foreach (var node in lists)
             {
-                if (node != null)
-                {
-                    ProcesNode(node, nodes);
-                }
+                if (node != null) pq.Enqueue(node, node.val);
             }
 
-            if (nodes.Count == 0)
+            var dummy = new ListNode(0);
+            var tail = dummy;
+
+            while (pq.Count > 0)
             {
-                return null!;
+                var node = pq.Dequeue();
+                tail.next = node;
+                tail = tail.next;
+                if (node.next != null) pq.Enqueue(node.next, node.next.val);
             }
 
-            var sorted = nodes.OrderByDescending(x => x.Key);
-
-            ListNode current = null!;
-            ListNode previous = null!;
-
-            foreach (var node in sorted)
-            {
-                for (var i = 0; i < node.Value; i++)
-                {
-                    var newNode = new ListNode(node.Key, previous);
-                    previous = newNode;
-                    current = newNode;
-                }
-            }
-
-            return current;
-        }
-
-        private static void ProcesNode(ListNode node, Dictionary<int, int> nodes)
-        {
-            if (node != null)
-            {
-                if (nodes.ContainsKey(node.val))
-                {
-                    nodes[node.val]++;
-                }
-                else
-                {
-                    nodes.Add(node.val, 1);
-                }
-
-                if (node.next != null)
-                {
-                    ProcesNode(node.next, nodes);
-                }
-            }
+            return dummy.next;
         }
     }
 }

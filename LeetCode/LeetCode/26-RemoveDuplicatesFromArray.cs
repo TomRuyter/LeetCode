@@ -19,27 +19,21 @@ namespace LeetCode
     {
         public static int RemoveDuplicates(int[] nums)
         {
-            // Make this a holder for output.
-            var singleNums = new List<int>();
+            if (nums == null || nums.Length == 0) return 0;
 
-            // Sanity checks
-            if (nums == null || !nums.Any()) { return 0; }
+            var seen = new HashSet<int>();
+            var uniques = new List<int>();
 
-            // Loop input and create list of items needed.
-            // If we need to create an index in the dictionary, it means it's in the array.
-            foreach (var item in nums)
+            foreach (var v in nums)
             {
-                if (!singleNums.Contains(item))
+                if (seen.Add(v)) // Add returns true if v wasn't present
                 {
-                    singleNums.Add(item);
+                    uniques.Add(v);
                 }
             }
 
-            // Now re-order arrays using the key values.
-            singleNums.CopyTo(nums, 0);
-
-            // Pass back the value now we've modified array.
-            return singleNums.Count;
+            uniques.CopyTo(nums, 0);
+            return uniques.Count;
         }
     }
 }

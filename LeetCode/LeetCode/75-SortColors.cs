@@ -23,41 +23,22 @@
     {
         public static void SortColors(int[] nums)
         {
-            var colourCounts = new Dictionary<int, int>
+            int low = 0, mid = 0, high = nums.Length - 1;
+            while (mid <= high)
             {
-                { 0, 0 },
-                { 1, 0 },
-                { 2, 0 }
-            };
-
-            // Store the amounts of each number.
-            for (int i = 0; i < nums.GetLength(0); i++)
-            {
-                colourCounts[nums[i]] += 1;
-            }
-
-            // Write them back out.
-            for (int i = 0; i < nums.GetLength(0); i++)
-            {
-                if (colourCounts[0] > 0)
+                switch (nums[mid])
                 {
-                    nums[i] = 0;
-                    colourCounts[0] -= 1;
-                    continue;
-                }
-
-                if (colourCounts[1] > 0)
-                {
-                    nums[i] = 1;
-                    colourCounts[1] -= 1;
-                    continue;
-                }
-
-                if (colourCounts[2] > 0)
-                {
-                    nums[i] = 2;
-                    colourCounts[2] -= 1;
-                    continue;
+                    case 0:
+                        (nums[low], nums[mid]) = (nums[mid], nums[low]);
+                        low++; mid++;
+                        break;
+                    case 1:
+                        mid++;
+                        break;
+                    case 2:
+                        (nums[mid], nums[high]) = (nums[high], nums[mid]);
+                        high--;
+                        break;
                 }
             }
         }

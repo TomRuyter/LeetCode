@@ -19,25 +19,20 @@ namespace LeetCode
     {
         public static bool IsPalindrome(string s)
         {
-            // Create valid items list
-            var output = new StringBuilder();
-            var valid = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+            if (string.IsNullOrEmpty(s)) return true;
 
-            // sanitise
-            s = s.ToLower();
-
-            // Loop Through.
-            foreach (var ch in s.ToCharArray())
+            int left = 0, right = s.Length - 1;
+            while (left < right)
             {
-                if (valid.Contains(ch))
-                {
-                    output.Append(ch);
-                }
+                while (left < right && !char.IsLetterOrDigit(s[left])) left++;
+                while (left < right && !char.IsLetterOrDigit(s[right])) right--;
+
+                if (char.ToLowerInvariant(s[left]) != char.ToLowerInvariant(s[right])) return false;
+
+                left++; right--;
             }
 
-            // Run Check
-            var final = output.ToString();
-            return final == new string(final.Reverse().ToArray());
+            return true;
         }
     }
 }
