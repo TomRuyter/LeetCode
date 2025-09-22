@@ -5,7 +5,7 @@ namespace LeetCode
     [TestClass]
     public class ValidPalindrone_125
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(" ", true)]
         [DataRow("a race car", false)]
         [DataRow("A man, a plan, a canal: Panama", true)]

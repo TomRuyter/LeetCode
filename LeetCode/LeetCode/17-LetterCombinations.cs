@@ -3,7 +3,7 @@
     [TestClass]
     public class LetterCombinations_17
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow("", new string[] { "" })]
         [DataRow("2", new string[] { "a", "b", "c" })]
         [DataRow("23", new string[] { "ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf" })]

@@ -5,7 +5,7 @@ namespace LeetCode
     [TestClass]
     public class AddBinary_67
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow("11", "1", "100")]
         [DataRow("1111", "1111", "11110")]
         [DataRow("1010", "1011", "10101")]

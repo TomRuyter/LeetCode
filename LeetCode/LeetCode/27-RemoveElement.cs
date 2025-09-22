@@ -3,7 +3,7 @@ namespace LeetCode
     [TestClass]
     public class RemoveElement_27
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(0, null, 0)]
         [DataRow(0, new int[] { }, 0)]
         [DataRow(2, new[] { 3, 2, 2, 3 }, 3)]

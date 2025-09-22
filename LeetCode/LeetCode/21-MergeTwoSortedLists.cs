@@ -3,7 +3,7 @@ namespace LeetCode
     [TestClass]
     public class MergeTwoSortedLists_21
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(new int[] { 1, 1, 2, 3, 4, 4 })]
         public void MergeTwoLists_OneToFour(int[] expected)
         {
@@ -19,7 +19,7 @@ namespace LeetCode
             }
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(new int[] { })]
         public void MergeTwoLists_NoEntries(int[] expected)
         {
@@ -35,7 +35,7 @@ namespace LeetCode
             }
         }
 
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(new int[] { 0 })]
         public void MergeTwoLists_OneEntry(int[] expected)
         {

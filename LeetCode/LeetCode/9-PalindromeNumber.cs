@@ -3,7 +3,7 @@
     [TestClass]
     public class PalindromeNumber_9
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(121, true)]
         [DataRow(-121, false)]
         [DataRow(10, false)]

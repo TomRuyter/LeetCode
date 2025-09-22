@@ -3,7 +3,7 @@
     [TestClass]
     public class RomanToInt_13
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow("III", 3)]
         [DataRow("LVIII", 58)]
         [DataRow("MCMXCIV", 1994)]

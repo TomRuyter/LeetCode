@@ -3,7 +3,7 @@
     [TestClass]
     public class PlusOne_66
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(new int[] { 1, 2, 3 }, new int[] { 1, 2, 4 })]
         [DataRow(new int[] { 4, 3, 2, 1 }, new int[] { 4, 3, 2, 2 })]
         [DataRow(new int[] { 9 }, new int[] { 1, 0 })]

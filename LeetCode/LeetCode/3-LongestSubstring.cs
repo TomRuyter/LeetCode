@@ -3,7 +3,7 @@ namespace LeetCode
     [TestClass]
     public class LongestSubstring_3
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow("abcabcbb", 3)]
         [DataRow("bbbbb", 1)]
         [DataRow("pwwkew", 3)]

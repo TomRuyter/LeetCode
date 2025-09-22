@@ -5,7 +5,7 @@ namespace LeetCode
     [TestClass]
     public class LongestCommonPrefix_14
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(new string[] { "flower", "flow", "flight" }, "fl", DisplayName = "Starts_FL")]
         [DataRow(new string[] { "dog", "racecar", "car" }, "", DisplayName = "NoCommonPrefix")]
         [DataRow(new string[] { "me", "myself", "motivation" }, "m", DisplayName = "SingleM")]

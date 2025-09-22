@@ -3,7 +3,7 @@ namespace LeetCode
     [TestClass]
     public class ValidParentheses_20
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow("()", true)]
         [DataRow("()[]{}", true)]
         [DataRow("(]", false)]

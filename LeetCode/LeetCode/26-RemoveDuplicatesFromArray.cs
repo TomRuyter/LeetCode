@@ -3,7 +3,7 @@ namespace LeetCode
     [TestClass]
     public class RemoveDuplicatesFromArray_26
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(0, null)]
         [DataRow(0, new int[] { })]
         [DataRow(2, new[] { 1, 1, 2 })]

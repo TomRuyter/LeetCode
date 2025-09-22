@@ -3,7 +3,7 @@
     [TestClass]
     public class LengthOfLastWord_58
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow("Hello World", 5)]
         [DataRow("   fly me   to   the moon  ", 4)]
         [DataRow("luffy is still joyboy", 6)]

@@ -3,7 +3,7 @@
     [TestClass]
     public class PascalsTriangle_118
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(1)]
         [DataRow(5)]
         [DataRow(30)]

@@ -3,7 +3,7 @@
     [TestClass]
     public class IndexFirstOccurrenceString_28
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow("sadbutsad", "sad", 0)]
         [DataRow("testingtimes", "imes", 8)]
         [DataRow("leetcode", "leeto", -1)]

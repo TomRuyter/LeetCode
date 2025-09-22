@@ -3,7 +3,7 @@
     [TestClass]
     public class SortColors_75
     {
-        [DataTestMethod]
+        [TestMethod]
         [DataRow(new int[] { 2, 0, 2, 1, 1, 0 }, new int[] { 0, 0, 1, 1, 2, 2 }, DisplayName = $"{nameof(SortColors)}_Five")]
         [DataRow(new int[] { 2, 0, 1 }, new int[] { 0, 1, 2 }, DisplayName = $"{nameof(SortColors)}_ThreeStartsWithTwo")]
         [DataRow(new int[] { 0, 0, 1 }, new int[] { 0, 0, 1 }, DisplayName = $"{nameof(SortColors)}_DuplicateZeros")]
