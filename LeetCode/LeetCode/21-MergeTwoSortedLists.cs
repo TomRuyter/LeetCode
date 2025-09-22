@@ -14,7 +14,7 @@ namespace LeetCode
 
             for (int i = 0; i < expected.Length; i++)
             {
-                Assert.IsTrue(result.val == expected[i]);
+                Assert.AreEqual(expected[i], result.val);
                 result = result.next;
             }
         }
@@ -30,7 +30,7 @@ namespace LeetCode
 
             for (int i = 0; i < expected.Length; i++)
             {
-                Assert.IsTrue(result.val == expected[i]);
+                Assert.AreEqual(expected[i], result.val);
                 result = result.next;
             }
         }
@@ -46,7 +46,7 @@ namespace LeetCode
 
             for (int i = 0; i < expected.Length; i++)
             {
-                Assert.IsTrue(result.val == expected[i]);
+                Assert.AreEqual(expected[i], result.val);
                 result = result.next;
             }
         }

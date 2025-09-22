@@ -13,7 +13,7 @@
                 new(2, new ListNode(6,null!))
             };
 
-            var result = Solution.MergeKLists(lists.ToArray());
+            var result = Solution.MergeKLists([.. lists]);
 
             Assert.IsNotNull(result);
             Assert.AreEqual(1, result.val);

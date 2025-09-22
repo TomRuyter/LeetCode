@@ -21,10 +21,12 @@
         {
             // XOR all numbers. Duplicates cancel out, leaving the unique number.
             int res = 0;
+
             foreach (var num in nums)
             {
                 res ^= num;
             }
+
             return res;
         }
     }

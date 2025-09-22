@@ -22,7 +22,7 @@
     {
         public static IList<string> LetterCombinations(string digits)
         {
-            IList<string> res = new List<string>();
+            IList<string> res = [];
             if (string.IsNullOrEmpty(digits))
             {
                 return res;
@@ -47,8 +47,10 @@
 
             foreach (char d in digits)
             {
-                IList<string> next = new List<string>();
+                IList<string> next = [];
+
                 var letterList = lettersMap[d];
+
                 foreach (char letter in letterList)
                 {
                     foreach (string s in res)

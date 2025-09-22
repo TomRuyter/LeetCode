@@ -13,7 +13,7 @@
 
             for (int i = 0; i < expected.Length; i++)
             {
-                Assert.IsTrue(result[i] == expected[i]);
+                Assert.AreEqual(expected[i], result[i]);
             }
         }
     }

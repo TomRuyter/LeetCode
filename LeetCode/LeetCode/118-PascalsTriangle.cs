@@ -22,7 +22,7 @@
             // Shouldn't run, just return empty lists
             if (numRows <= 0)
             {
-                return new List<IList<int>>();
+                return [];
             }
 
             // Create the ones that we know don't change. Effectively "Seed" the result array with
@@ -34,7 +34,7 @@
             };
 
             // See if we need to just return static results.
-            if (numRows == 1) { return new List<IList<int>> { result.First() }; }
+            if (numRows == 1) { return [result.First()]; }
             if (numRows == 2) { return result; }
 
             // Loop through each row and build up as needed.
